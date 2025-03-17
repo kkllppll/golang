@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Завдання 2</title>
+    <link rel="stylesheet" href="/static/styles.css">
+    <script src="/static/script.js" defer></script>
+</head>
+<body>
+    <div class="container">
+        <h1>Завдання 2</h1>
+        <form method="post">
+            <input type="number" name="hydrogen" placeholder="Введіть HP, %" step="any" required>
+            <input type="number" name="carbon" placeholder="Введіть CP, %" step="any" required>
+            <input type="number" name="sulfur" placeholder="Введіть SP, %" step="any" required>
+            <input type="number" name="oxygen" placeholder="Введіть OP, %" step="any" required>
+            <input type="number" name="vanadium" placeholder="Введіть VP, %" step="any" required>
+            <input type="number" name="water" placeholder="Введіть WP, %" step="any" required>
+            <input type="number" name="ash" placeholder="Введіть AP, %" step="any" required>
+            <input type="number" name="lowerHeating" placeholder="Введіть LH_Q, %" step="any" required>
+            <button type="submit">Розрахувати</button>
+        </form>
+
+        {{if .}}
+        <div class="result">
+            <h2>Результати:</h2>
+            <p>Елементарний склад:</p>
+            <pre>{{.composition}}</pre>
+            <p>Нижча теплота згоряння робочої маси: {{.lowerHeating}}</p>
+        </div>
+        {{end}}
+    </div>
+</body>
+</html>

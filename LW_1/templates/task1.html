@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Завдання 1</title>
+    <link rel="stylesheet" href="/static/styles.css">
+    <script src="/static/script.js" defer></script>
+</head>
+<body>
+    <div class="container">
+        <h1>Завдання 1</h1>
+        <form method="post">
+            <input type="number" name="hydrogen" placeholder="Введіть HP, %" step="any" required>
+            <input type="number" name="carbon" placeholder="Введіть CP, %" step="any" required>
+            <input type="number" name="sulfur" placeholder="Введіть SP, %" step="any" required>
+            <input type="number" name="nitrogen" placeholder="Введіть NP, %" step="any" required>
+            <input type="number" name="oxygen" placeholder="Введіть OP, %" step="any" required>
+            <input type="number" name="water" placeholder="Введіть WP, %" step="any" required>
+            <input type="number" name="ash" placeholder="Введіть AP, %" step="any" required>
+            <button type="submit">Розрахувати</button>
+        </form>
+
+        {{if .}}
+        <div class="result">
+            <h2>Результати:</h2>
+            <p>Коефіцієнт сухої маси: {{.coefficient_dry}}</p>
+            <p>Склад сухої маси:</p>
+            <pre>{{.composition_dry}}</pre>
+            <p>Коефіцієнт горючої маси: {{.coefficient_comb}}</p>
+            <p>Склад горючої маси:</p>
+            <pre>{{.composition_comb}}</pre>
+            <p>Теплота згоряння робочої маси: {{.workingQ}}</p>
+            <p>Теплота згоряння сухої маси: {{.dryQ}}</p>
+            <p>Теплота згоряння горючої маси: {{.combQ}}</p>
+        </div>
+        {{end}}
+    </div>
+</body>
+</html>
