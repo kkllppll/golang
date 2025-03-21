@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Лабораторна робота 2.</title>
+    <link rel="stylesheet" href="/static/styles.css">
+    <script src="/static/script.js" defer></script>
+</head>
+<body>
+    <div class="container">
+        <h1>Лабораторна робота 2. Веб-калькулятор для розрахунку.</h1>
+        
+        <!-- випадаючий список -->
+        <label for="fuelType">Оберіть тип палива:</label>
+        <select id="fuelType">
+            <option value="Вугілля">Вугілля</option>
+            <option value="Мазут">Мазут</option>
+            <option value="Природній газ">Природній газ</option>
+        </select>
+
+        <h3>Обране паливо: <span id="selectedFuel"></span></h3>
+
+        <form method="post">
+            <input type="hidden" name="fuelType" id="fuelTypeInput"> <!-- сховане поле -->
+            <input type="number" name="Q_iR" placeholder="Нижча теплота згоряння Q (МДж/кг)" step="any" required>
+            <input type="number" name="L" placeholder="Частка леткої золи aвин" step="any" required>
+            <input type="number" name="Ar" placeholder="Масова частка золи Ar (%)" step="any" required>
+            <input type="number" name="G" placeholder="Гвин (%)" step="any" required>
+            <input type="number" name="n" placeholder="Ефективність золовловлення ηзу" step="any" required>
+            <input type="number" name="k" placeholder="Ктв" step="any" required>
+            <input type="number" name="B" placeholder="Витрати палива B (т)" step="any" required>
+            <button type="submit">Розрахувати</button>
+        </form>
+
+        <!-- результати -->
+        <div class="result-container">
+            {{if .}}
+            <div class="result">
+                <h2>Результати:</h2>
+                <p>Тип палива: {{.fuelType}}</p>
+                <p>Показник емісії: {{.emissionFactor}}</p>
+                <p>Валовий викид: {{.totalEmission}}</p>
+            </div>
+            {{end}}
+        </div>
+    </div>
+</body>
+</html>
