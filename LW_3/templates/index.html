@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Лабораторна робота 3.</title>
+    <link rel="stylesheet" href="/static/styles.css">
+    <script src="/static/script.js" defer></script>
+</head>
+<body>
+    <div class="container">
+        <h1>Лабораторна робота 3. Веб-калькулятор для розрахунку.</h1>
+        
+        <form method="post">
+            <input type="number" name="powerController" placeholder="Середня потужність (Pс), МВт:" step="any" required>
+            <input type="number" name="deviationController" placeholder="Стандартне відхилення (σP), МВт:" step="any" required>
+            <input type="number" name="lowerDeviationController" placeholder="Зменшена похибка (σLP), МВт:" step="any" required>
+            <input type="number" name="costController" placeholder="Тариф на енергію (B), грн/кВт·год:" step="any" required>
+            <button type="submit">Розрахувати</button>
+        </form>
+
+        {{if .}}
+        <div class="result">
+            <h2>Результати розрахунку:</h2>
+            
+            <h3>До вдосконалення</h3>
+            <p>Частка енергії без небалансів: {{.delta_W1}}%</p>
+            <p>Згенерована енергія: {{.W1}} МВт·год</p>
+            <p>Прибуток: {{.profit1}} тис. грн</p>
+            <p>Залишок енергії: {{.W_penalty1}} МВт·год</p>
+            <p>Штраф: {{.penalty1}} тис. грн</p>
+            <p>Чистий прибуток: {{.netProfit1}} тис. грн</p>
+            
+            <h3>Після вдосконалення</h3>
+            <p>Частка енергії без небалансів: {{.delta_W2}}%</p>
+            <p>Згенерована енергія: {{.W2}} МВт·год</p>
+            <p>Прибуток: {{.profit2}} тис. грн</p>
+            <p>Залишок енергії: {{.W_penalty2}} МВт·год</p>
+            <p>Штраф: {{.penalty2}} тис. грн</p>
+            <p>Чистий прибуток: {{.netProfit2}} тис. грн</p>
+        </div>
+        {{end}}
+    </div>
+</body>
+</html>
