@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Порівняння надійності систем</title>
+    <link rel="stylesheet" href="/static/styles.css">
+    <script src="/static/task1.js" defer></script>
+</head>
+<body>
+    <div class="container">
+        <h1>Порівняння надійності систем</h1>
+        <form method="post">
+            <input type="number" name="coefSimpleDowntime" placeholder="Макс. коефіцієнт планового простою (год.)" step="any" required>
+            <button type="submit">Розрахувати</button>
+        </form>
+
+        {{if .}}
+        <div class="result">
+            <h2>Результати:</h2>
+            <p>Частота відмов одноколової системи: {{.omegaSystem}} рік^-1</p>
+            <p>Середній час відновлення: {{.avgRecoveryTime}} год.</p>
+            <p>Коефіцієнт аварійного простою: {{.kAoc}}</p>
+            <p>Коефіцієнт планового простою: {{.kPlOc}}</p>
+            <p>Частота відмов двоколової системи: {{.omegaDk}} рік^-1</p>
+            <p>Частота відмов двоколової системи з урахуванням секційного вимикача: {{.omegaDs}} рік^-1</p>
+        </div>
+        {{end}}
+    </div>
+</body>
+</html>

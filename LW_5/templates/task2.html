@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Завдання 2</title>
+    <link rel="stylesheet" href="/static/styles.css">
+    <script src="/static/script.js" defer></script>
+</head>
+<body>
+    <div class="container">
+        <h1>Завдання 2. Збитки від перерв електропостачання.</h1>
+        <form method="post">
+            <input type="number" name="omegaController" placeholder="ω (рік^-1)" step="any" required>
+            <input type="number" name="tbController" placeholder="tB (год.)" step="any" required>
+            <input type="number" name="pController" placeholder="Pm (кВт)" step="any" required>
+            <input type="number" name="tController" placeholder="Tm" step="any" required>
+            <input type="number" name="kController" placeholder="kp" step="any" required>
+            <input type="number" name="priceAController" placeholder="Зпера (грн/кВт)" step="any" required>
+            <input type="number" name="pricePController" placeholder="Зперп (грн/кВт)" step="any" required>
+
+            <button type="submit">Розрахувати</button>
+        </form>
+
+        {{if .}}
+        <div class="result">
+            <h2>Результати:</h2>
+            <p>Математичне сподівання аварійного недовідпуску: {{.mWnedA}} Ом</p>
+            <p>Математичне сподівання планового недовідпуску: {{.mWnedP}} ОМ </p>
+            <p>Загальні збитки: {{.Mzper}} Ом</p>
+        </div>
+        {{end}}
+    </div>
+</body>
+</html>
