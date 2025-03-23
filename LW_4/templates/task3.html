@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Завдання 3</title>
+    <link rel="stylesheet" href="/static/styles.css">
+    <script src="/static/script.js" defer></script>
+</head>
+<body>
+    <div class="container">
+        <h1>Завдання 3. Розрахунок КЗ для підстанції ХПнЕМ.</h1>
+        <form method="post">
+            <input type="number" name="ukmaxController" placeholder="Напруга трансформатора у відсотках (%)" step="any" required>
+            <input type="number" name="uvnController" placeholder="Номінальна напруга високовольтної частини (кВ)" step="any" required>
+            <input type="number" name="snomController" placeholder="Номінальна потужність трансформатора (МВА)" step="any" required>
+            <input type="number" name="rcnController" placeholder="Активний опір високовольтної частини (Ом)" step="any" required>
+            <input type="number" name="xcnController" placeholder="Реактивний опір на шинах у нормальному режимі (Ом)" step="any" required>
+            <input type="number" name="rcminController" placeholder="Активний опір у мінімальному режимі (Ом)" step="any" required>
+            <input type="number" name="xcminController" placeholder="Реактивний опір на шинах у мінімальному режимі (Ом)" step="any" required>
+            <input type="number" name="unnController" placeholder="Номінальна напруга (кВ)" step="any" required>
+            <input type="text" name="lengthsController" placeholder="Довжини ділянок через кому (км)" required>
+            <input type="number" name="rLineController" placeholder="Питомий активний опір (Ом/км)" step="any" required>
+            <input type="number" name="xLineController" placeholder="Питомий реактивний опір (Ом/км)" step="any" required>
+
+            <button type="submit">Розрахувати</button>
+        </form>
+
+        {{if .}}
+        <div class="result">
+            <h2>Результати:</h2>
+            <p>Реактивний опір трансформатора Xt: {{.Xt}} Ом</p>
+            <p>Сумарний опір у нормальному режимі ZshNorm: {{.ZshNorm}} Ом</p>
+            <p>Сумарний опір у мінімальному режимі ZshMin: {{.ZshMin}} Ом</p>
+            
+            <p>Струм трифазного КЗ у нормальному режимі Ish3Norm: {{.Ish3Norm}} А</p>
+            <p>Струм двофазного КЗ у нормальному режимі Ish2Norm: {{.Ish2Norm}} А</p>
+            
+            <p>Струм трифазного КЗ у мінімальному режимі Ish3Min: {{.Ish3Min}} А</p>
+            <p>Струм двофазного КЗ у мінімальному режимі Ish2Min: {{.Ish2Min}} А</p>
+            
+            <p>Коефіцієнт приведення kpr: {{.kpr}}</p>
+            
+            <p>Опір на шинах у нормальному режимі RshNorm: {{.RshNorm}} Ом</p>
+            <p>Реактивний опір на шинах у нормальному режимі XshNorm: {{.XshNorm}} Ом</p>
+            <p>Сумарний опір на шинах у нормальному режимі ZshNormPr: {{.ZshNormPr}} Ом</p>
+            
+            <p>Опір на шинах у мінімальному режимі RshMin: {{.RshMin}} Ом</p>
+            <p>Реактивний опір на шинах у мінімальному режимі XshMin: {{.XshMin}} Ом</p>
+            <p>Сумарний опір на шинах у мінімальному режимі ZshMinPr: {{.ZshMinPr}} Ом</p>
+            
+            <p>Дійсний струм трифазного КЗ у нормальному режимі Ish3RealNorm: {{.Ish3RealNorm}} А</p>
+            <p>Дійсний струм двофазного КЗ у нормальному режимі Ish2RealNorm: {{.Ish2RealNorm}} А</p>
+            
+            <p>Дійсний струм трифазного КЗ у мінімальному режимі Ish3RealMin: {{.Ish3RealMin}} А</p>
+            <p>Дійсний струм двофазного КЗ у мінімальному режимі Ish2RealMin: {{.Ish2RealMin}} А</p>
+            
+            <p>Сумарний активний опір лінії: {{.RlineSum}} Ом</p>
+            <p>Сумарний реактивний опір лінії: {{.XlineSum}} Ом</p>
+            
+            <p>Опір у нормальному режимі:</p>
+            <p>RtotalNorm: {{.RtotalNorm}} Ом</p>
+            <p>XtotalNorm: {{.XtotalNorm}} Ом</p>
+            <p>ZtotalNorm: {{.ZtotalNorm}} Ом</p>
+            
+            <p>Опір у мінімальному режимі:</p>
+            <p>RtotalMin: {{.RtotalMin}} Ом</p>
+            <p>XtotalMin: {{.XtotalMin}} Ом</p>
+            <p>ZtotalMin: {{.ZtotalMin}} Ом</p>
+            
+            <p>Струми КЗ у нормальному режимі:</p>
+            <p>Iш3 (трифазний): {{.I3phNorm}} А</p>
+            <p>Iш2 (двофазний): {{.I2phNorm}} А</p>
+            
+            <p>Струми КЗ у мінімальному режимі:</p>
+            <p>Iш3 (трифазний): {{.I3phMin}} А</p>
+            <p>Iш2 (двофазний): {{.I2phMin}} А</p>
+        </div>        
+        {{end}}
+    </div>
+</body>
+</html>

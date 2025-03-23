@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Завдання 2</title>
+    <link rel="stylesheet" href="/static/styles.css">
+    <script src="/static/script.js" defer></script>
+</head>
+<body>
+    <div class="container">
+        <h1>Завдання 2. Струми КЗ на шинах 10 кВ.</h1>
+        <form method="post">
+            <input type="number" name="usnController" placeholder="Номінальна напруга" step="any" required>
+            <input type="number" name="skController" placeholder="Потужність короткого замикання" step="any" required>
+            <input type="number" name="ukController" placeholder="Короткозамкнена напруга (%)" step="any" required>
+            <input type="number" name="snomController" placeholder="Номінальна потужність трансформатора" step="any" required>
+            <button type="submit">Розрахувати</button>
+        </form>
+
+        {{if .}}
+        <div class="result">
+            <h2>Результати:</h2>
+            <p>Опір елементів заступної системи Xc: {{.Xc}} Ом</p>
+            <p>Опір елементів заступної системи Xt: {{.Xt}} Ом</p>
+            <p>Сумарний опір для точки К1 Xsum: {{.Xsum}} Ом</p>
+            <p>Початкове діюче значення струму трифазного КЗ Ip0: {{.Ip0}} кА</p>
+        </div>
+        {{end}}
+    </div>
+</body>
+</html>

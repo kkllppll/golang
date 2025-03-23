@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Завдання 1</title>
+    <link rel="stylesheet" href="/static/styles.css">
+    <script src="/static/script.js" defer></script>
+</head>
+<body>
+    <div class="container">
+        <h1>Завдання 1. Розрахунок вибору кабелю.</h1>
+        <form method="post">
+            <input type="number" name="smController" placeholder="Розрахункове навантаження (кВА)" step="any" required>
+            <input type="number" name="unomController" placeholder="Номінальна напруга (кВ)" step="any" required>
+            <input type="number" name="jekController" placeholder="Економічна густина струму" step="any" required>
+            <input type="number" name="ikController" placeholder="Струм КЗ (А)" step="any" required>
+            <input type="number" name="tfController" placeholder="Час відключення (с)" step="any" required>
+            <input type="number" name="ctController" placeholder="Коеф. термостійкості" step="any" required>
+            <button type="submit">Розрахувати</button>
+        </form>
+
+        {{if .}}
+        <div class="result">
+            <h2>Результати:</h2>
+            <p>Розрахунковий струм для нормального режиму Iм:  {{.Im}} A</p>
+            <p>Розрахунковий струм для післяаварійного режиму Iм.па: {{.Ipa}} A</p>
+            <p>Економічний переріз: {{.Sek}} мм²</p>
+            <p>Переріз для термостійкості:  {{.Smin}} мм²</p>
+        </div>
+        {{end}}
+    </div>
+</body>
+</html>
