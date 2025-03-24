@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Завдання 1</title>
+    <link rel="stylesheet" href="/static/styles.css">
+    <script src="/static/task1.js" defer></script>
+</head>
+<body>
+    <div class="container">
+        <h1>ШР1/ШР2/ШР3</h1>
+        <form method="post">
+            <button type="submit">Розрахувати</button>
+        </form>
+
+        {{if .}}
+        <div class="result">
+            <h2>Результати:</h2>
+            <p>Kv = {{.Kv}} </p>
+            <p>Ефективна кількість ЕП (n_e): {{.Ne}} </p>
+            <p>Розрахунковий коефіцієнт Kp: {{.Kp}}</p>
+            <p>Розрахункове активне навантаження (Pp): {{.Pp}}</p>
+            <p> Реактивне навантаження (Qp): {{.Qp}} кВАр</p>
+            <p>Повна потужність (Sp): {{.Sp}} кВА</p>
+            <p>Розрахунковий груповий струм (Ip): {{.Ip}} А</p>
+            <p>Кількість ЕП (n): {{.quantity}} </p>
+            <p>n * Ph: {{.nPh}} </p>
+            <p>n * Ph * Kv {{.nPhKv}} </p>
+            <p>n * Ph^2: {{.nPh2}} </p>
+        </div>
+        {{end}}
+    </div>
+</body>
+</html>

@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Завдання 3</title>
+    <link rel="stylesheet" href="/static/styles.css">
+    <script src="/static/script.js" defer></script>
+</head>
+<body>
+    <div class="container">
+        <h1>Весь цех</h1>
+        <form method="post">
+            <input type="number" name="quantityController" placeholder="Кількість ЕП" step="any" required>
+            <input type="number" name="phiController" placeholder="Phi" step="any" required>
+            <input type="number" name="sulnPhKvControllerfur" placeholder="nPhKv" step="any" required>
+            <input type="number" name="nPnKvtgController" placeholder="nPnKvtg" step="any" required>
+            <input type="number" name="np2Controller" placeholder="np2" step="any" required>
+            <button type="submit">Розрахувати</button>
+        </form>
+
+        {{if .}}
+        <div class="result">
+            <h2>Результати:</h2>
+            <p>Коефіцієнт використання цеху (Kv): {{.Kv}} </p>
+            <p>Ефективна кількість ЕП (Ne): {{.Ne}} </p>
+            <p>Розрахунковий коефіцієнт активної потужності (Kp): {{.Kp}}</p>
+            <p>Активне навантаження (Pp): {{.Pp}} кВт</p>
+            <p>Реактивне навантаження (Qp): {{.Qp}} кВАр</p>
+            <p>Повна потужність (Sp): {{.Sp}} кВа</p>
+            <p>Розрахунковий струм (Ip): {{.Ip}} А</p>
+        </div>
+        {{end}}
+    </div>
+</body>
+</html>
